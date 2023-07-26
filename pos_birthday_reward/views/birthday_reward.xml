@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_property_form_inh" model="ir.ui.view">
+        <field name="name">x_kanak.res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <data>
+                <field name="category_id" position="after">
+                    <field name="birth_date" />
+                    <field name="is_birthdate_month" invisible="1" />
+                    <field name="birthday_order_counter" invisible="1"/>
+                </field>
+            </data>
+        </field>
+    </record>
+    <record id="view_pos_pos_form_inh" model="ir.ui.view">
+        <field name="name">x_kanak.pos.order.form</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_unit']" position="after">
+                <field name="membership_birthmonth_discount" widget="monetary" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_res_config_setting_form_pbr" model="ir.ui.view">
+        <field name="name">view.res.config.setting.form.pbr</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='product_prices']" position="after">
+                <div class="col-xs-12 col-md-6 o_setting_box" id="birthday_discount">
+                    <div class="o_setting_right_pane">
+                        <label for='birthday_discount' string="Birthday Discount" />
+                        <div class="text-muted">
+                            Birthday Month Discount(%)
+                        </div>
+                        <div class="content-group mt16">
+                            <field name="birthday_discount" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-6 o_setting_box" >
+                    <div class="o_setting_left_pane">
+                        <field name="is_first_order_apply"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="is_first_order_apply"/>
+                        <div class="text-muted">
+                            Birthday Discount apply only first order during birthday month of the customer.
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

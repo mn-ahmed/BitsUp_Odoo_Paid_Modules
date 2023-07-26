@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data noupdate="1">
+        <record model="unit.quantity.code" id="data_state_uom_bag">
+            <field name="name">BAGS</field>
+            <field name="code">BAG</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_bal">
+            <field name="name">BALE</field>
+            <field name="code">BAL</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_bdl">
+            <field name="name">BUNDLES</field>
+            <field name="code">BDL</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_bkl">
+            <field name="name">BUCKLES</field>
+            <field name="code">BKL</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_bou">
+            <field name="name">BILLIONS OF UNITS</field>
+            <field name="code">BOU</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_box">
+            <field name="name">BOX</field>
+            <field name="code">BOX</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_btl">
+            <field name="name">BOTTLES</field>
+            <field name="code">btl</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_bun">
+            <field name="name">BUNCHES</field>
+            <field name="code">BUN</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_can">
+            <field name="name">CANS</field>
+            <field name="code">CAN</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_cbm">
+            <field name="name">CUBIC METER</field>
+            <field name="code">CBM</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_ccm">
+            <field name="name">CUBIC CENTIMETER</field>
+            <field name="code">CCM</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_cms">
+            <field name="name">CENTIMETER</field>
+            <field name="code">CMS</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_ctn">
+            <field name="name">CARTONS</field>
+            <field name="code">CTN</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_doz">
+            <field name="name">DOZEN</field>
+            <field name="code">DOZ</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_drm">
+            <field name="name">DRUM</field>
+            <field name="code">DRM</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_ggk">
+            <field name="name">GREAT GROSS</field>
+            <field name="code">GGK</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_gms">
+            <field name="name">GRAMMES</field>
+            <field name="code">GMS</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_grs">
+            <field name="name">GROSS</field>
+            <field name="code">GRS</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_gyd">
+            <field name="name">GROSS YARDS</field>
+            <field name="code">GYD</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_kgs">
+            <field name="name">KILOGRAMS</field>
+            <field name="code">KGS</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_klr">
+            <field name="name">KILOLITERE</field>
+            <field name="code">KLR</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_kme">
+            <field name="name">KILOMETERS</field>
+            <field name="code">KME</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_mlt">
+            <field name="name">MILLILITERE</field>
+            <field name="code">MLT</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_mtr">
+            <field name="name">METER</field>
+            <field name="code">MTR</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_mts">
+            <field name="name">METRIC TON</field>
+            <field name="code">MTS</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_nos">
+            <field name="name">NUMBERS</field>
+            <field name="code">NOS</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_pac">
+            <field name="name">PACKS</field>
+            <field name="code">PAC</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_pcs">
+            <field name="name">PIECES</field>
+            <field name="code">PCS</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_prs">
+            <field name="name">PAIRS</field>
+            <field name="code">PRS</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_qtl">
+            <field name="name">QUINTAL</field>
+            <field name="code">QTL</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_rol">
+            <field name="name">ROLLS</field>
+            <field name="code">ROL</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_set">
+            <field name="name">SETS</field>
+            <field name="code">SET</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_sqf">
+            <field name="name">SQUARE FEET</field>
+            <field name="code">SQF</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_sqm">
+            <field name="name">SQUARE METERS</field>
+            <field name="code">SQM</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_sqy">
+            <field name="name">SQUARE YARDS</field>
+            <field name="code">SQY</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_tbs">
+            <field name="name">TABLETS</field>
+            <field name="code">TBS</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_tgm">
+            <field name="name">TEN GROSS</field>
+            <field name="code">TGM</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_thd">
+            <field name="name">THOUSANDS</field>
+            <field name="code">THD</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_ton">
+            <field name="name">TONNES</field>
+            <field name="code">TON</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_tub">
+            <field name="name">TUBES</field>
+            <field name="code">TUB</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_ugs">
+            <field name="name">US GALLONS</field>
+            <field name="code">UGS</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_unt">
+            <field name="name">UNITS</field>
+            <field name="code">UNT</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_yds">
+            <field name="name">YARDS</field>
+            <field name="code">YDS</field>
+        </record>
+        <record model="unit.quantity.code" id="data_state_uom_oth">
+            <field name="name">OTHERS</field>
+            <field name="code">OTH</field>
+        </record>
+    </data>
+</odoo>

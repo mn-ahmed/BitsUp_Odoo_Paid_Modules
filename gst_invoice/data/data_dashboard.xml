@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data noupdate="1">
+        <record model="gst.dashboard" id="gst_dashboard_b2b">
+            <field name="name">B2B</field>
+            <field name="invoice_type">b2b</field>
+        </record>
+
+        <record model="gst.dashboard" id="gst_dashboard_b2bur">
+            <field name="name">B2BUR</field>
+            <field name="invoice_type">b2bur</field>
+        </record>
+
+        <record model="gst.dashboard" id="gst_dashboard_b2cs">
+            <field name="name">B2CS</field>
+            <field name="invoice_type">b2cs</field>
+        </record>
+
+        <record model="gst.dashboard" id="gst_dashboard_b2cl">
+            <field name="name">B2CL</field>
+            <field name="invoice_type">b2cl</field>
+        </record>
+
+        <record model="gst.dashboard" id="gst_dashboard_import">
+            <field name="name">Import</field>
+            <field name="invoice_type">import</field>
+        </record>
+
+        <record model="gst.dashboard" id="gst_dashboard_export">
+            <field name="name">Export</field>
+            <field name="invoice_type">export</field>
+        </record>
+
+        <record model="gst.dashboard" id="gst_dashboard_cdnr">
+            <field name="name">CDNR</field>
+            <field name="invoice_type">cdnr</field>
+        </record>
+
+        <record model="gst.dashboard" id="gst_dashboard_cdnur">
+            <field name="name">CDNUR</field>
+            <field name="invoice_type">cdnur</field>
+        </record>
+    </data>
+</odoo>

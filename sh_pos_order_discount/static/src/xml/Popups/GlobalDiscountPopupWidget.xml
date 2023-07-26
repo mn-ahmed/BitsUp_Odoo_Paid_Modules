@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="GlobalDiscountPopupWidget" owl="1">
+        <div role="dialog" class="modal-dialog sh_discount_modal_dialog">
+            <div class="popup popup-text popup-lg product-configurator-popup sh_discount_popup">
+                <header class="title">
+                    Discount
+                </header>
+                <div class="main-body touch-scrollable scrollable-y sh_discount_main_table">
+                    <div class="sh_discount_radio">
+                        <label class="sh_custom_radio sh_control_radio" for="discount_fixed_radio">Fixed
+                            <input type="radio" id="discount_fixed_radio" name="fixed_percen_discount_radio" checked="true" />
+                            <div class="sh_custom_radio_indicator"></div>
+                        </label>
+                        <label class="sh_custom_radio sh_control_radio" for="discount_percentage_radio">Percentage
+                            <input type="radio" id="discount_percentage_radio" name="fixed_percen_discount_radio" />
+                            <div class="sh_custom_radio_indicator"></div>
+                        </label>
+                    </div>
+                    <div class="discount_amount_div"><span class="sh_discount_label">Value : </span><input type="text" class="sh_discount_value" /></div>
+                </div>
+                <footer class="footer sh_discount_footer">
+                    <div class="button confirm highlight" t-on-click="confirm">
+                        Confirm
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        Cancel
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+</templates>

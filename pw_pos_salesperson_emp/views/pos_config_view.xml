@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_config_view_form_inherit_pos_salesperson_emp" model="ir.ui.view">
+        <field name="name">pos.config.form.inherit.pos.salesperson.emp</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='pos_interface_section']" position="inside">
+                <div class="col-xs-12 col-md-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name='allow_salesperson'/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="allow_salesperson"/>
+                        <div class="text-muted">
+                            Set salesperson on pos orderline
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_pos_pos_form_inherit_pos_salesperson" model="ir.ui.view">
+        <field name="name">pos.order.view.form.inherit.pos.saleperson</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lines']/tree/field[@name='full_product_name']" position="after">
+                <field name="user_id" string="Saleperson"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

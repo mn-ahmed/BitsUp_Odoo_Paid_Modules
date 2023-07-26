@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<odoo>
+    <record id="res_config_settings_view_form_pos_stocks" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos_stocks</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='pos_inventory_section']" position="inside">
+                <div id="pos_stocks" class="col-xs-12 col-md-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="pos_wk_display_stock"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="pos_wk_display_stock" string="Display stock in POS"/>
+                        <div class="text-muted">
+                            Display product's stock info in POS
+                        </div>
+                        <div class="content-group" attrs="{'invisible' : [('pos_wk_display_stock', '=', False)]}">
+                            <div class="row mt16">
+                                <label string="Hide out of stock products" for="pos_wk_hide_out_of_stock" class="col-md-5 o_light_label"/>
+                                <field name="pos_wk_hide_out_of_stock"/>
+                            </div>
+                            <div class="row" style="margin-top: 10px;">
+                                <label string="Stock type" for="pos_wk_stock_type" class="col-md-5 o_light_label"/>
+                                <field name="pos_wk_stock_type"/>
+                            </div>
+                            <div class="row" style="margin-top: 10px;">
+                                <label string="Allow Order When Out-of-Stock" for="pos_wk_continous_sale" class="col-md-5 o_light_label"/>
+                                <field name="pos_wk_continous_sale"/>
+                            </div>
+                            <div class="row" style="margin-top: 10px;" attrs="{'invisible' : [('pos_wk_continous_sale', '=', True)]}">
+                                <label string="Custom message" for="pos_wk_error_msg" class="col-md-5 o_light_label"/>
+                                <field name="pos_wk_error_msg"/>
+                            </div>
+                            <div class="row" style="margin-top: 10px;" attrs="{'invisible' : [('pos_wk_continous_sale', '=', True)]}">
+                                <label string="Deny order when product stock is equal to" for="pos_wk_deny_val" class="col-md-5 o_light_label"/>
+                                <field name="pos_wk_deny_val"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

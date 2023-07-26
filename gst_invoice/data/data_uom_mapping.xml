@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data noupdate="1">
+        <record model="uom.mapping" id="data_uom_un">
+            <field name="name" ref="data_state_uom_unt"/>
+            <field name="uom" ref="uom.product_uom_categ_unit"/>
+        </record>
+
+        <record model="uom.mapping" id="data_uom_cm">
+            <field name="name" ref="data_state_uom_cms"/>
+            <field name="uom" ref="uom.product_uom_cm"/>
+        </record>
+
+        <record model="uom.mapping" id="data_uom_doz">
+            <field name="name" ref="data_state_uom_doz"/>
+            <field name="uom" ref="uom.product_uom_dozen"/>
+        </record>
+
+        <record model="uom.mapping" id="data_uom_gms">
+            <field name="name" ref="data_state_uom_gms"/>
+            <field name="uom" ref="uom.product_uom_gram"/>
+        </record>
+
+        <record model="uom.mapping" id="data_uom_kgs">
+            <field name="name" ref="data_state_uom_kgs"/>
+            <field name="uom" ref="uom.product_uom_kgm"/>
+        </record>
+
+        <record model="uom.mapping" id="data_uom_km">
+            <field name="name" ref="data_state_uom_kme"/>
+            <field name="uom" ref="uom.product_uom_km"/>
+        </record>
+
+        <record model="uom.mapping" id="data_uom_qtl">
+            <field name="name" ref="data_state_uom_qtl"/>
+            <field name="uom" ref="uom.product_uom_qt"/>
+        </record>
+
+        <record model="uom.mapping" id="data_uom_ton">
+            <field name="name" ref="data_state_uom_ton"/>
+            <field name="uom" ref="uom.product_uom_ton"/>
+        </record>
+    </data>
+</odoo>

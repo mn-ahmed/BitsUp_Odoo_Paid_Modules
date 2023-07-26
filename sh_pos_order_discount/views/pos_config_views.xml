@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="sh_pos_res_config_setting_purchase_button" model="ir.ui.view">
+        <field name="name">pos.config.settings.purchase</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <h2>POS Order Discount</h2>
+                <div class="row mt16 o_settings_container">
+                    <div id="category_reference" class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="sh_allow_order_line_discount" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="sh_allow_order_line_discount" />
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="sh_allow_global_discount" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="sh_allow_global_discount" />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

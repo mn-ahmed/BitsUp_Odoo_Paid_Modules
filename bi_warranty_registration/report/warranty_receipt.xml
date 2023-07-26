@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="warranty_receipt_template_view">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-3 customer_address">
+                                <p>
+                                    <strong>Customer Address</strong>
+                                </p>
+                                <address t-field="o.partner_id"
+                                         t-options='{"widget": "contact", "fields": ["address", "name", "phone", "email"], "no_marker": False}'/>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    <strong>Warranty Team</strong>
+                                </p>
+                                <p>
+                                    <span t-field="o.warranty_team"/>
+                                </p>
+                                <p>
+                                    <strong>Tags:</strong>
+                                    <t t-foreach="o.tags_w" t-as='tag1'>
+                                        <span t-esc="tag1.tag_name +', ' "/>
+                                    </t>
+                                </p>
+                            </div>
+                        </div>
+                        <h3 style="margin-top: 30px;margin-bottom: 30px;">
+                            <b><span t-field="o.serial_no"/></b>
+                        </h3>
+                        <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="width: 25%" scope="col">
+                                            <b>
+                                                <span>Product</span>
+                                            </b>
+                                        </th>
+                                        <th class="text-center" style="width: 20%" scope="col">
+                                            <b>
+                                                <span>Model No</span>
+                                            </b>
+                                        </th>
+                                        <th class="text-center" style="width: 15%" scope="col">
+                                            <b>
+                                                <span>Serial No</span>
+                                            </b>
+                                        </th>
+                                        <th class="text-center" style="width: 15%" scope="col">
+                                            <b>
+                                                <span>Warranty Start Date</span>
+                                            </b>
+                                        </th>
+                                        <th class="text-center" style="width: 25%" scope="col">
+                                            <b>
+                                                <span>Warranty End Date</span>
+                                            </b>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="font-size:15">
+                                        <td class="text-start">
+                                            <span t-if="o.product_id" t-field="o.product_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-if="o.model_no" t-field="o.model_no"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-if="o.product_serial_id"
+                                                  t-field="o.sudo().product_serial_id.sudo().name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.warranty_create_date"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.warranty_end_date"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        <div class="col-xs-12" style="width:100%; margin-top: 300px;">
+                            <table class="table table-borderless" style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <span style="border-top: 1px solid;">Signature of Reception</span>
+                                    </td>
+                                    <td>
+                                        <span style="border-top: 1px solid;float:right;">Signature of Customer</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <template id="warranty_report">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="bi_warranty_registration.warranty_receipt_template_view" t-lang="o.partner_id.lang"/>
+            </t>
+        </template>
+    </data>
+</odoo>

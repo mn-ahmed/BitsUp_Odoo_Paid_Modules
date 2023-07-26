@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data>
+        <record id="gst_uom_map_tree" model="ir.ui.view">
+            <field name="name">uom.mapping.tree</field>
+            <field name="model">uom.mapping</field>
+            <field name="arch" type="xml">
+                <tree string="UOM Mapping" editable="bottom">
+                    <field name="name" required="1" groups="gst_invoice.group_gst_admin,gst_invoice.group_gst_user"/>
+                    <field name="uom" required="1" groups="gst_invoice.group_gst_admin,gst_invoice.group_gst_user"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="gst_uom_map_action" model="ir.actions.act_window">
+            <field name="name">UOM Mapping</field>
+            <field name="res_model">uom.mapping</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="gst_uom_map_tree"/>
+        </record>
+    </data>
+</odoo>

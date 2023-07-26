@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data>
+        <record id="invoice_type_wizard_form" model="ir.ui.view">
+            <field name="name">invoice.type.wizard</field>
+            <field name="model">invoice.type.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Select Invoice Type">
+                    <separator string="GST"/>
+                    <group string="GST">
+                        <group col="2">
+                            <field name="gst_status" />
+                            <field name="export_type" />
+                            <field name="invoice_type" />
+                            <field name="export" class="oe_inline" attrs="{'invisible':[('invoice_type','!=','export')]}"/>
+                        </group>
+                        <group col="2">
+                            <field name="itc_eligibility" />
+                            <field name="reverse_charge" />
+                            <field name="portcode_id" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="updateAccountInvoiceType" icon="fa-check-square-o" string="Done" type="object"/>
+                        <button string="Cancel" class="oe_highlight" special="cancel" icon="fa-ban"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

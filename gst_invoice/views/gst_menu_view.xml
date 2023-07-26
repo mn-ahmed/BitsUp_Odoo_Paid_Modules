@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data>
+        <menuitem id="gst_parent_menu" name="GST" groups="account.group_account_invoice,gst_invoice.group_gst_admin" web_icon="gst_invoice,static/description/icon.png"/>
+
+        <menuitem id="menu_dashboard" name="Dashboard" parent="gst_parent_menu" sequence="1" action="gst_dashboard_action" groups="gst_invoice.group_gst_admin"/>
+
+        <menuitem id="menu_gst_tool" name="GST TOOL" parent="gst_parent_menu" sequence="2"/>
+
+        <menuitem id="menu_gstr1_list" name="GSTR1" parent="menu_gst_tool" action="gstr1_list_action" sequence="1"/>
+
+        <menuitem id="menu_gstr2_list" name="GSTR2" parent="menu_gst_tool" action="gstr2_list_action" sequence="2"/>
+
+        <menuitem id="menu_customer_invoice" name="Invoice" parent="gst_parent_menu" sequence="3"/>
+
+        <menuitem id="menu_customer_invoice_list" name="Customer Invoice" parent="menu_customer_invoice" action="customer_invoice_list_action" sequence="1"/>
+
+        <menuitem id="menu_supplier_invoice_list" name="Supplier Invoice" parent="menu_customer_invoice" action="supplier_invoice_list_action" sequence="2"/>
+
+        <menuitem id="menu_account_period_parent" name="Periods" parent="gst_parent_menu" sequence="3"/>
+
+        <menuitem id="menu_action_account_fiscalyear" action="action_account_fiscalyear" parent="menu_account_period_parent"/>
+
+        <menuitem id="menu_action_account_period" action="action_account_period" parent="menu_account_period_parent"/>
+
+        <menuitem id="menu_gst_configuration" name="Configuration" parent="gst_parent_menu" sequence="4"/>
+
+        <menuitem id="menu_uom_code" name="Unit Quantity Code" parent="menu_gst_configuration" action="gst_uom_action" sequence="2"/>
+
+        <menuitem id="menu_uom_map" name="UOM Mapping" parent="menu_gst_configuration" action="gst_uom_map_action" sequence="3"/>
+    </data>
+</odoo>

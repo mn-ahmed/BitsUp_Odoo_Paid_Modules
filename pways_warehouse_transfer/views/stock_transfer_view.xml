@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="stock_transfer_tree_view" model="ir.ui.view">
+            <field name="name">stock.transfer.view.tree</field>
+            <field name="model">stock.transfer</field>
+            <field name="arch" type="xml">
+                <tree string="Stock Transfer">
+                    <field name="name"/>
+                    <field name="schedule_date"/>
+                    <field name="location_id"/>
+                    <field name="location_dest_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="stock_transfer_view_form" model="ir.ui.view">
+            <field name="name">stock.transfer.view.form</field>
+            <field name="model">stock.transfer</field>
+            <field name="arch" type="xml">
+               <form string="Stock Transfer">
+                    <header>
+                        <button name="action_process" type="object" string="Process" 
+                            attrs="{'invisible': [('state', '!=', 'draft')]}" class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,process,done" />
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="open_picking" type="object" class="oe_stat_button" icon="fa-truck" attrs="{'invisible': [('picking_count', '=', 0)]}">
+                                <field name="picking_count" widget="statinfo" string="Pickings"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" attrs="{'invisible': [('name','=','/')]}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="type"/>
+                                <field name="location_id" attrs="{'invisible': [('state', '=', 'process')]}"/>
+                                <label for="from_warehouse_id" string="Requested From"/>
+                                <div class="o_row">
+                                    <field name="from_warehouse_id" readonly="1" force_save="1"/> to <field name="to_warehouse_id" readonly="1" force_save="1"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="schedule_date" attrs="{'invisible': [('state', '=', 'process')]}"/>
+                                <field name="location_dest_id" attrs="{'invisible': [('state', '=', 'process')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Operations">
+                                <field name="line_ids" mode="tree">
+                                    <tree editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="qty"/>
+                                        <field name="product_uom_id"/>
+                                         <field name="product_uom_category_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+ <record id='action_stock_transfer' model='ir.actions.act_window'>
+            <field name="name">Warehouse Transfer</field>
+            <field name="res_model">stock.transfer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new New Transfer
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="stock_transfer_menu"
+            name="Warehouse Transfer"
+            parent="stock.menu_stock_warehouse_mgmt"
+            action="action_stock_transfer"
+            sequence="200"/>
+    </data>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data>
+        <record id="gst_uom_tree" model="ir.ui.view">
+            <field name="name">unit.quantity.code.tree</field>
+            <field name="model">unit.quantity.code</field>
+            <field name="arch" type="xml">
+                <tree string="Unit Quantity Code" editable="bottom">
+                    <field name="name" required="1" groups="gst_invoice.group_gst_admin,gst_invoice.group_gst_user"/>
+                    <field name="code" required="1" groups="gst_invoice.group_gst_admin,gst_invoice.group_gst_user"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

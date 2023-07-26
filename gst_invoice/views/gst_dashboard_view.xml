@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data>
+        <record id="gst_dashboard_kanban_view" model="ir.ui.view">
+            <field name="name">gst.dashboard.view</field>
+            <field name="model">gst.dashboard</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey o_kanban_dashboard o_gst_kanban" create="0">
+                    <field name="color"/>
+                    <field name="name"/>
+                    <field name="kanban_dashboard_graph"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                                <t t-value="record.invoice_type.raw_value" t-set="itmetype"/>
+                                <t t-call="gstTop"/>
+                                <div class="container o_kanban_card_content o_visible">
+                                    <div class="row">
+                                        <t t-if="itmetype == 'b2b'" t-call="B2B"/>
+                                        <t t-if="itmetype == 'b2bur'" t-call="B2BUR"/>
+                                        <t t-if="itmetype == 'b2cs'" t-call="B2CS"/>
+                                        <t t-if="itmetype == 'b2cl'" t-call="B2CL"/>
+                                        <t t-if="itmetype == 'import'" t-call="IMPORT"/>
+                                        <t t-if="itmetype == 'export'" t-call="EXPORT"/>
+                                        <t t-if="itmetype == 'cdnr'" t-call="CDNR"/>
+                                        <t t-if="itmetype == 'cdnur'" t-call="CDNUR"/>
+                                        <div t-if="itmetype == 'general' || itmetype == 'situation'" class="row">
+                                        </div>
+                                    </div>
+                                    <t t-call="gstBarGraph"/>
+                                </div>
+                                <div class="container o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                    <t t-call="gstDashboard"/>
+                                </div>
+                            </div>
+                        </t>
+
+                        <t t-name="gstDashboard">
+                            <div class="row">
+                                <div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_view">
+                                    <div class="o_kanban_card_manage_title">
+                                        <span>GST Invoices</span>
+                                    </div>
+                                    <div>
+                                        <a type="object" name="get_gst_invoice" context="{'status':'not_uploaded'}">No Uploaded</a>
+                                    </div>
+                                    <div>
+                                        <a type="object" name="get_gst_invoice" context="{'status':'ready_to_upload'}">Ready to upload</a>
+                                    </div>
+                                    <div>
+                                        <a type="object" name="get_gst_invoice" context="{'status':'uploaded'}">Uploaded to govt</a>
+                                    </div>
+                                    <div>
+                                        <a type="object" name="get_gst_invoice" context="{'status':'filed'}">Filed</a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_new">
+                                    <div class="o_kanban_card_manage_title">
+                                        <span>New</span>
+                                    </div>
+                                    <div>
+                                        <a type="object" name="action_create_new" context="{'obj':'Invoice'}">Invoice</a>
+                                    </div>
+                                    <div>
+                                        <a type="object" name="action_create_new" context="{'obj':'gst'}">GST Invoice</a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_reports">
+                                    <div class="o_kanban_card_manage_title">
+                                        <span>Attachments</span>
+                                    </div>
+                                    <div>
+                                        <a type="object" name="get_attachments">GST Attachments</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <t t-call="GstMoreDashboard"/>
+                        </t>
+
+                        <t t-name="gstTop">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <a class="wk_kanban_button" type="object" name="open_action">
+                                            <field name="name"/>
+                                        </a>
+                                    </div>
+                                    <div class="o_secondary">
+                                        <field name="invoice_type"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button wk_kanban_button" href="#">More <i class="fa fa-caret-down"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </t>
+
+                        <t t-name="GstMoreDashboard">
+                            <div class="row o_kanban_card_settings">
+                                <div t-if="widget.editable" class="col-6 o_project_kanban_colorpicker" style="margin-top:50px">
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                        </t>
+
+                        <t t-name="B2B">
+                            <div class="col-6 o_kanban_primary_right wk_invoice">
+                                <div class="row">
+                                    <center>
+                                        <span class="fa fa-money wk_label" type="action"> B2B Invoices</span>
+                                    </center>
+                                </div>
+                            </div>
+                            <t t-call="GSTOptions"/>
+                        </t>
+                        <t t-name="B2BUR">
+                            <div class="col-6 o_kanban_primary_right wk_invoice">
+                                <div class="row">
+                                    <center>
+                                        <span class="fa fa-user-times wk_label" type="action"> B2BUR Invoices</span>
+                                    </center>
+                                </div>
+                            </div>
+                            <t t-call="GSTOptions"/>
+                        </t>
+                        <t t-name="B2CS">
+                            <div class="col-6 o_kanban_primary_right wk_invoice">
+                                <div class="row">
+                                    <center>
+                                        <span class="fa fa-pie-chart wk_label" type="action"> B2CS Invoices</span>
+                                    </center>
+                                </div>
+                            </div>
+                            <t t-call="GSTOptions"/>
+                        </t>
+                        <t t-name="B2CL">
+                            <div class="col-6 o_kanban_primary_right wk_invoice">
+                                <div class="row">
+                                    <center>
+                                        <span class="fa fa-line-chart wk_label" type="action"> B2CL Invoices</span>
+                                    </center>
+                                </div>
+                            </div>
+                            <t t-call="GSTOptions"/>
+                        </t>
+                        <t t-name="IMPORT">
+                            <div class="col-6 o_kanban_primary_right wk_invoice">
+                                <div class="row">
+                                    <center>
+                                        <span class="fa fa-building wk_label" type="action"> IMPORT Invoices</span>
+                                    </center>
+                                </div>
+                            </div>
+                            <t t-call="GSTOptions"/>
+                        </t>
+                        <t t-name="EXPORT">
+                            <div class="col-6 o_kanban_primary_right wk_invoice">
+                                <div class="row">
+                                    <center>
+                                        <span class="fa fa-university wk_label" type="action"> EXPORT Invoices</span>
+                                    </center>
+                                </div>
+                            </div>
+                            <t t-call="GSTOptions"/>
+                        </t>
+                        <t t-name="CDNR">
+                            <div class="col-6 o_kanban_primary_right wk_invoice">
+                                <div class="row">
+                                    <center>
+                                        <span class="fa fa-university wk_label" type="action"> CDNR Invoices</span>
+                                    </center>
+                                </div>
+                            </div>
+                            <t t-call="GSTOptions"/>
+                        </t>
+                        <t t-name="CDNUR">
+                            <div class="col-6 o_kanban_primary_right wk_invoice">
+                                <div class="row">
+                                    <center>
+                                        <span class="fa fa-university wk_label" type="action"> CDNUR Invoices</span>
+                                    </center>
+                                </div>
+                            </div>
+                            <t t-call="GSTOptions"/>
+                        </t>
+                        <t t-name="GSTOptions">
+                            <div class="col-6 o_kanban_primary_right">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a type="object" name="get_gst_action" context="{'gst_status':'not_uploaded'}">
+                                            <span class="not_type" title="No Uploaded">
+                                                <field name="not_upload_count"/> No Uploaded
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span>
+                                            <field name="not_upload_amount"/> ₹
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a type="object" name="get_gst_action" context="{'gst_status':'ready_to_upload'}">
+                                            <span class="ready_type" title="Ready to upload">
+                                                <field name="ready_count"/> Ready to upload
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span>
+                                            <field name="ready_amount"/> ₹
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a type="object" name="get_gst_action" context="{'gst_status':'uploaded'}">
+                                            <span class="up_type" title="Uploaded to govt">
+                                                <field name="uploaded_count"/> Uploaded to govt
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span>
+                                            <field name="uploaded_amount"/>
+                                         ₹</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a type="object" name="get_gst_action" context="{'gst_status':'filed'}">
+                                            <span class="file_type" title="Filed">
+                                                <field name="filed_count"/> Filed
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span>
+                                            <field name="filed_amount"/> ₹
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-name="gstBarGraph">
+                            <div class="o_kanban_graph_section">
+                                <field name="kanban_dashboard_graph" graph_type="bar" widget="dashboard_graph"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="gst_dashboard_action" model="ir.actions.act_window">
+            <field name="name">GST Dashboard</field>
+            <field name="res_model">gst.dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="context">{}</field>
+            <field name="view_mode">kanban</field>
+        </record>
+    </data>
+</odoo>

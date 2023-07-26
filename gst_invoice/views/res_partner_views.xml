@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data>
+        <record id="gstr2_invoice_view_partner_form" model="ir.ui.view">
+            <field name="name">gst.invoice.res.partner.partner_type.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="l10n_in.l10n_in_view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="vat" position="after">
+                    <label for="partner_type"/>
+                    <div name="partner_type" class="o_row">
+                        <field name="partner_type"/>
+                    </div>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

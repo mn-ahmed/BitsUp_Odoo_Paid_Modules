@@ -1,0 +1,16 @@
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<templates id="template" xml:space="preserve">
+    <t t-name="ReceiptScreen" t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension" owl="1">
+        helooo
+        <xpath expr="//div[hasclass('buttons')]" position="inside">
+            <t t-if="env.pos.get_order().is_to_invoice()">
+                <div class="button print-invoice" t-on-click="printInvoicePdf">
+                    <i class="fa fa-print"></i> Print Invoice   
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>
+

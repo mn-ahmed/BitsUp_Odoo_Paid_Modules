@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data>
+        <record id="gstr1_tool_form" model="ir.ui.view">
+            <field name="name">gstr1.tool.form</field>
+            <field name="model">gstr1.tool</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="GSTR1" groups="gst_invoice.group_gst_admin,gst_invoice.group_gst_user">
+                    <header>
+                        <field name="status" widget="statusbar" />
+                        <button name="reset" string="Reset" type="object" class="oe_highlight" icon="fa-undo" attrs="{'invisible': [('status','=','not_uploaded')]}" groups="gst_invoice.group_gst_admin" confirm="Are you sure you want to reset gst invoices?"/>
+                        <button name="generateCsv" string="Generate CSV" type="object" class="oe_highlight" icon="fa-file-excel-o" attrs="{'invisible': [('status','!=','not_uploaded')]}" groups="gst_invoice.group_gst_admin"/>
+                        <button name="uploadGST" string="Upload" type="object" class="oe_highlight" icon="fa-upload" attrs="{'invisible': [('status','!=','ready_to_upload')]}"/>
+                        <button name="filedGST" string="Filed" type="object" class="oe_highlight" icon="fa-file" attrs="{'invisible': [('status','!=','uploaded')]}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" groups="gst_invoice.group_gst_admin">
+                            <button name="action_view_invoice"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                attrs="{'invisible': [('invoices_count', '=', 0)]}">
+                                <field name="invoices_count" widget="statinfo" string="Invoices"/>
+                            </button>
+                            <button name="action_view_attachment"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                attrs="{'invisible': [('attachment_count', '=', 0)]}">
+                                <field name="attachment_count" widget="statinfo" string="Attachments"/>
+                            </button>
+                        </div>
+                        <h1>
+                            <field name="name" class="oe_inline" readonly='1'/>
+                        </h1>
+                        <h2>
+                            <field name="gst_type" class="oe_inline"/>
+                        </h2>
+                        <group groups="gst_invoice.group_gst_admin,gst_invoice.group_gst_user">
+                            <group col="2">
+                                <field name="period_id" required="1" attrs="{'readonly': [('status','!=','not_uploaded')]}"/>
+                                <field name="date_from" required="1" attrs="{'readonly': [('status','!=','not_uploaded')]}"/>
+                                <field name="date_to" required="1" attrs="{'readonly': [('status','!=','not_uploaded')]}"/>
+                                <field name="reverse_charge" attrs="{'readonly': [('status','!=','not_uploaded')]}"/>
+                            </group>
+                            <group>
+                                <field name="gt_amount" required="1" attrs="{'readonly': [('status','!=','not_uploaded')]}"/>
+                                <field name="cgt" required="1" attrs="{'readonly': [('status','!=','not_uploaded')]}"/>
+                                <field name="company_id" attrs="{'readonly': [('status','!=','not_uploaded')]}" groups="base.group_system"/>
+                                <field name="counter_filing_status" attrs="{'readonly': [('status','!=','not_uploaded')]}"/>
+                            </group>
+                        </group>
+                        <button name="fetchInvoices" string="Fetch Invoices" type="object" class="btn-success" style="margin-right:5px;margin-bottom:5px;" icon="fa-get-pocket" attrs="{'invisible': [('status','!=','not_uploaded')]}" groups="gst_invoice.group_gst_admin"/>
+                        <button name="export_gst_attachment" string="B2B CSV" type="object" class="btn-success" style="margin-right:5px;margin-bottom:5px;" icon="fa-download" attrs="{'invisible': [('status','!=','ready_to_upload')]}" groups="gst_invoice.group_gst_admin" context="{'export_type':'b2b_attachment'}"/>
+                        <button name="export_gst_attachment" string="B2CS CSV" type="object" class="btn-success" style="margin-right:5px;margin-bottom:5px;" icon="fa-download" attrs="{'invisible': [('status','!=','ready_to_upload')]}" groups="gst_invoice.group_gst_admin" context="{'export_type':'b2cs_attachment'}"/>
+                        <button name="export_gst_attachment" string="B2CL CSV" type="object" class="btn-success" style="margin-right:5px;margin-bottom:5px;" icon="fa-download" attrs="{'invisible': [('status','!=','ready_to_upload')]}" groups="gst_invoice.group_gst_admin" context="{'export_type':'b2cl_attachment'}"/>
+                        <button name="export_gst_attachment" string="Export CSV" type="object" class="btn-success" style="margin-right:5px;margin-bottom:5px;" icon="fa-download" attrs="{'invisible': [('status','!=','ready_to_upload')]}" groups="gst_invoice.group_gst_admin" context="{'export_type':'export_attachment'}"/>
+                        <button name="export_gst_attachment" string="CDNR CSV" type="object" class="btn-success" style="margin-right:5px;margin-bottom:5px;" icon="fa-download" attrs="{'invisible': [('status','!=','ready_to_upload')]}" groups="gst_invoice.group_gst_admin" context="{'export_type':'cdnr_attachment'}"/>
+                        <button name="export_gst_attachment" string="CDNUR CSV" type="object" class="btn-success" style="margin-right:5px;margin-bottom:5px;" icon="fa-download" attrs="{'invisible': [('status','!=','ready_to_upload')]}" groups="gst_invoice.group_gst_admin" context="{'export_type':'cdnur_attachment'}"/>
+                        <button name="export_gst_attachment" string="HSN CSV" type="object" class="btn-success" style="margin-right:5px;margin-bottom:5px;" icon="fa-download" attrs="{'invisible': [('status','!=','ready_to_upload')]}" groups="gst_invoice.group_gst_admin" context="{'export_type':'hsn_attachment'}"/>
+                        <button name="export_gst_attachment" string="Json" type="object" class="btn-success" style="margin-right:5px;margin-bottom:5px;" icon="fa-code" attrs="{'invisible': [('status','!=','ready_to_upload')]}" groups="gst_invoice.group_gst_admin" context="{'export_type':'json_attachment'}"/>
+                        <field name="invoice_lines" groups="gst_invoice.group_gst_admin" widget="many2many" attrs="{'readonly': [('status','!=','not_uploaded')]}">
+                            <tree>
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="currency_id"/>
+                                <field name="amount_total_signed"/>
+                                <field name="inr_total"/>
+                                <field name="invoice_date"/>
+                                <field name="state"/>
+                                <field name="move_type"/>
+                                <field name="gst_status"/>
+                                <field name="invoice_type"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="gstr1_tool_tree" model="ir.ui.view">
+            <field name="name">gstr1.tool.tree</field>
+            <field name="model">gstr1.tool</field>
+            <field name="arch" type="xml">
+                <tree string="GSTR" default_order='create_date desc'>
+                    <field name="name"/>
+                    <field name="period_id" groups="gst_invoice.group_gst_admin"/>
+                    <field name="date_from" groups="gst_invoice.group_gst_admin"/>
+                    <field name="date_to" groups="gst_invoice.group_gst_admin"/>
+                    <field name="status" groups="gst_invoice.group_gst_admin"/>
+                    <field name="create_date" groups="gst_invoice.group_gst_admin,gst_invoice.group_gst_user"/>
+                    <field name="company_id" groups="base.group_system"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_gstr_filter" model="ir.ui.view">
+            <field name="name">gstr1.tool.select</field>
+            <field name="model">gstr1.tool</field>
+            <field name="arch" type="xml">
+                <search string="GST Invoice">
+                    <field name="name" string="GST Invoice" filter_domain="[('name','ilike',self)]"/>
+                    <filter name="not_uploaded" string="Not Uploaded" domain="[('status','=','not_uploaded')]"/>
+                    <filter name="ready_to_upload" string="Ready To Upload" domain="[('status','=','ready_to_upload')]"/>
+                    <filter name="uploaded" string="Uploaded To Govt" domain="[('status','=','uploaded')]"/>
+                    <filter name="filed" string="Filed" domain="[('status','=','filed')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="GST Status" name="filter_by_status" domain="[]" context="{'group_by':'status'}"/>
+                        <filter string="Company" name="filter_by_company" domain="[]" context="{'group_by':'company_id'}" groups="base.group_system"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

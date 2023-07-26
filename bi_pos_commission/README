@@ -1,0 +1,13 @@
+Version 16.0.0.1 : (08-02-2023)
+    - When we return pos order at that time update commission for that order.
+
+Version 16.0.0.2 : (26-04-2023)
+    - When we used discount-based commission time traceback occurs fixed issue.
+    - When apply partner-based commission change commission line string for Partner-based.
+
+Version 16.0.0.3 : (10-05-2023)
+    - Fixed the issue when using a commission based on mix and margin based that time calculation of commission gives the wrong value.
+    - When used discount-based commission that time commission inter change with max discount and discount commission.
+
+Version 16.0.0.4 : (12-05-2023)
+    - Improvement for Discount Based commission adds functionality for a discount greater than showing the input value and add validation.

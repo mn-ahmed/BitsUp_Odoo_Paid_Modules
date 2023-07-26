@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="SalespersonButton" owl="1">
+        <div class="control-button">
+            <i class="fa fa-user" role="img" aria-label="Salesperson" title="Salesperson"/>
+            Salesperson
+        </div>
+    </t>
+    <t t-name="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t[@t-esc='props.line.get_unit().name']" position="after">
+            <t t-if="env.pos.config.allow_salesperson">
+                <t t-if="props.line.get_line_user()">
+                    <span style="float: right;color:green;font-style: italic;cursor: pointer;">
+                        <t t-if="props.line.get_user_image_url()">
+                            <img t-att-src="props.line.get_user_image_url()" style="width: 25px;height: 25px;border-radius: 16px;vertical-align: middle;}" class="sale_person" t-on-click="setEmployee"/>
+                        </t>
+                        <t t-esc="props.line.get_line_user().name" class="sale_person"/>
+                        <i class="fa fa-times remove_person" style="color:red;vertical-align: middle;" t-on-click="removeEmployee"/>
+                    </span>
+                </t>
+                <t t-if="!props.line.get_line_user()">
+                    <span style="float: right;">
+                        <i t-attf-class="fa fa-user-plus sale_person" style="color:orange" t-on-click="setEmployee"/>
+                    </span>
+                </t>
+            </t>
+        </xpath>
+    </t>
+        <t t-name="SalespersonPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <Draggable>
+                <div class="popup">
+                    <header class="title drag-handle">
+                        <t t-esc="props.title" />
+                    </header>
+                    <div style="display: inline-flex;padding: 20px;">
+                        <div style="padding-top: 10px;">Salesperson: </div>
+                        <div>
+                            <input list="emp_list" id="empID" t-on-change="onChangeSalesperson"/>
+                            <datalist id="emp_list">
+                                <t t-foreach="env.pos.employees" t-as="item"  t-key ="item.id" t-att-data-product-id="item.id">
+                                    <option t-att-value="item.name" t-att-id="item.id"/>
+                                </t>
+                            </datalist>
+                        </div>
+                    </div>
+                    <footer class="footer">
+                        <div class="button confirm" t-on-click="confirm" style="background: #6EC89B;border-color: #6EC89B;color:white;">
+                            Add
+                        </div>
+                        <div class="button cancel" t-on-click="cancel">
+                            <t t-esc="props.cancelText" />
+                        </div>
+                    </footer>
+                </div>
+            </Draggable>
+        </div>
+    </t>
+</templates>

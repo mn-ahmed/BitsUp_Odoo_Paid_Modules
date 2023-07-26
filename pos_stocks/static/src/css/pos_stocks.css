@@ -1,0 +1,22 @@
+/* Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) */
+/* See LICENSE file for full copyright and licensing details. */
+/* License URL : <https://store.webkul.com/license.html/> */
+
+.qty-tag {
+  position: absolute;
+  top: 2px;
+  left: 1px;
+  width: auto;
+  vertical-align: top;
+  color: #fff;
+  line-height: 9px;
+  background: none repeat scroll 0% 0% #7f82ac;
+  padding: 10px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-content: center;
+}
+.product-info-button {
+  top: 25px !important;
+  left: 3px !important;
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="invoice_report_product_code_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr="//th[@name='th_description']" position="after">
+            <th>Customer Product Code</th>
+            <th>Customer Product Name</th>
+        </xpath>
+        <xpath expr="//td[@name='account_invoice_line_name']" position="after">
+            <td><span t-field="line.sh_line_customer_code" /></td>
+            <td><span t-field="line.sh_line_customer_product_name" /></td>
+        </xpath>
+    </template>
+</odoo>

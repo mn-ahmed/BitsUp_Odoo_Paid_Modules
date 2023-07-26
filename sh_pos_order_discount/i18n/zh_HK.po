@@ -1,0 +1,98 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_pos_order_discount
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.1alpha1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-16 11:38+0000\n"
+"PO-Revision-Date: 2021-09-16 11:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_pos_order_discount
+#: model:ir.model.fields,field_description:sh_pos_order_discount.field_pos_config__sh_allow_global_discount
+msgid "Allow Global Discount"
+msgstr "允许全球折扣"
+
+#. module: sh_pos_order_discount
+#: model:ir.model.fields,field_description:sh_pos_order_discount.field_pos_config__sh_allow_order_line_discount
+msgid "Allow Line Discount"
+msgstr "允许行折扣"
+
+#. module: sh_pos_order_discount
+#. openerp-web
+#: code:addons/sh_pos_order_discount/static/src/xml/popup.xml:0
+#: code:addons/sh_pos_order_discount/static/src/xml/pos_custom_view.xml:0
+#, python-format
+msgid "Cancel"
+msgstr "取消"
+
+#. module: sh_pos_order_discount
+#. openerp-web
+#: code:addons/sh_pos_order_discount/static/src/xml/popup.xml:0
+#: code:addons/sh_pos_order_discount/static/src/xml/pos_custom_view.xml:0
+#, python-format
+msgid "Confirm"
+msgstr "确认"
+
+#. module: sh_pos_order_discount
+#. openerp-web
+#: code:addons/sh_pos_order_discount/static/src/xml/popup.xml:0
+#: code:addons/sh_pos_order_discount/static/src/xml/pos_custom_view.xml:0
+#, python-format
+msgid "Discount"
+msgstr "折扣"
+
+#. module: sh_pos_order_discount
+#. openerp-web
+#: code:addons/sh_pos_order_discount/static/src/xml/popup.xml:0
+#: code:addons/sh_pos_order_discount/static/src/xml/pos_custom_view.xml:0
+#, python-format
+msgid "Fixed"
+msgstr "固定的"
+
+#. module: sh_pos_order_discount
+#. openerp-web
+#: code:addons/sh_pos_order_discount/static/src/xml/action_button.xml:0
+#, python-format
+msgid "Global Discount"
+msgstr "全球折扣"
+
+#. module: sh_pos_order_discount
+#: model_terms:ir.ui.view,arch_db:sh_pos_order_discount.sh_pos_res_config_setting_purchase_button
+msgid "POS Discount"
+msgstr "POS折扣"
+
+#. module: sh_pos_order_discount
+#. openerp-web
+#: code:addons/sh_pos_order_discount/static/src/xml/popup.xml:0
+#: code:addons/sh_pos_order_discount/static/src/xml/pos_custom_view.xml:0
+#, python-format
+msgid "Percentage"
+msgstr "百分比"
+
+#. module: sh_pos_order_discount
+#: model:ir.model,name:sh_pos_order_discount.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "销售点配置"
+
+#. module: sh_pos_order_discount
+#. openerp-web
+#: code:addons/sh_pos_order_discount/static/src/xml/action_button.xml:0
+#, python-format
+msgid "Remove Discount"
+msgstr "删除折扣"
+
+#. module: sh_pos_order_discount
+#. openerp-web
+#: code:addons/sh_pos_order_discount/static/src/xml/popup.xml:0
+#: code:addons/sh_pos_order_discount/static/src/xml/pos_custom_view.xml:0
+#, python-format
+msgid "Value :"
+msgstr "价值 ："

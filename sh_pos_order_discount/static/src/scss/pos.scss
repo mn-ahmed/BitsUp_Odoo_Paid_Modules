@@ -1,0 +1,37 @@
+
+/* odoo 16 */ 
+/* Discount Modal Popup */ 
+/* custom radio button design  */ 
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_radio{display: flex;align-items: center;justify-content: center;margin-bottom: 18px;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_radio .sh_custom_radio{display: block;position: relative;padding-left: 26px;padding-right: 26px;margin-bottom: 0px;cursor: pointer;font-size: 16px;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_radio .sh_custom_radio input {position: absolute;z-index: -1;opacity: 0;margin: 0px !important;padding: 0px !important;width: 0px !important;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_radio .sh_custom_radio .sh_custom_radio_indicator {position: absolute;top: 0px;left: 0;height: 20px;width: 20px;background: #e6e6e6;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_radio .sh_control_radio .sh_custom_radio_indicator {border-radius: 50%;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_radio .sh_custom_radio input:checked ~ .sh_custom_radio_indicator {background: #017e84;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_radio .sh_custom_radio .sh_custom_radio_indicator:after {content: '';position: absolute;display: none;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_radio .sh_control_radio .sh_custom_radio_indicator:after {left: 7px;top: 7px;height: 6px;width: 6px;border-radius: 50%;background: #fff;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_radio .sh_custom_radio input:checked ~ .sh_custom_radio_indicator:after {display: block;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_radio .sh_return_exchange_radio{display: flex;justify-content: center;}
+
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_main_table .discount_amount_div .sh_discount_label{margin-right: 8px;font-size: 16px;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_main_table {padding: 15px;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_main_table .sh_discount_value{width: 25% !important;min-height: 35px;padding: 5px;font-size: 16px;border-radius: 0px;border: 1px solid #dcdcdc;box-shadow: none;outline: none;transition: all .5s;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_main_table .sh_discount_value:hover,.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_main_table .sh_discount_value:focus,.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_main_table .sh_discount_value:focus-visible{border: 1px solid #017e84;}
+.pos .popups .sh_discount_modal_dialog .sh_discount_popup .sh_discount_main_table .sh_discount_value.invalid_number {border: 1px solid #C53400 !important;box-shadow: none !important;}
+
+/* cart total part */  
+.pos .pos-content .leftpane .order-container .sh_summary{display: flex;justify-content: space-between;}
+.pos .pos-content .leftpane .order-container .sh_summary .line:not(.global_discount_line){width: 50%;order: 2;}
+.pos .pos-content .leftpane .order-container .sh_summary .line.global_discount_line{width: 50%;text-align: left;}
+.pos .pos-content .leftpane .order-container .sh_summary .line.global_discount_line .sh_cart_amount_label{font-weight: bold;font-size: 16px;margin-right: 5px;}
+
+
+@media only screen and (max-width: 767.98px) {
+    .pos .popups .sh_discount_modal_dialog .sh_discount_popup {width: 320px !important;}
+    .pos .order-container .order .summary.sh_summary .line.global_discount_line .total,
+    .pos .order-container .order .summary.sh_summary .line .total{font-size: 18px;}
+    .pos .order-container .order .summary.sh_summary .line,
+    .pos .order-container .order .summary.sh_summary .line.global_discount_line{float: unset !important;}
+    .pos .order-container .order .summary.sh_summary .line .entry.total .subentry{text-align: right;}
+    .pos .order-container .order .summary.sh_summary .line.global_discount_line{border-top: 0px;}
+}

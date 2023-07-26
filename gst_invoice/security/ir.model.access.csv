@@ -1,0 +1,19 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_period_manager,account.period,model_account_period,account.group_account_manager,1,1,1,1
+access_account_period_user,account.period,model_account_period,account.group_account_user,1,0,1,0
+access_account_period_invoice,account.period invoice,model_account_period,account.group_account_invoice,1,0,0,0
+access_account_fiscalyear,account.fiscalyear,model_account_fiscalyear,account.group_account_manager,1,1,1,1
+access_account_fiscalyear_user,account.fiscalyear,model_account_fiscalyear,account.group_account_user,1,0,1,0
+access_account_fiscalyear_invoice,account.fiscalyear.invoice,model_account_fiscalyear,account.group_account_invoice,1,0,0,0
+
+access_gstr1_tool_user,GST Tool,model_gstr1_tool,group_gst_user,1,0,0,0
+access_gst_dashboard_user,GST Dashboard,model_gst_dashboard,group_gst_user,1,0,0,0
+access_unit_quantity_code_user,Unit Quantity Code,model_unit_quantity_code,group_gst_user,1,0,0,0
+access_uom_mapping_user,UOM Mapping,model_uom_mapping,group_gst_user,1,0,0,0
+
+access_gstr1_tool_manager,GST Configurantion Manager,model_gstr1_tool,group_gst_admin,1,1,1,1
+access_gst_dashboard_manager,GST Dashboard Manager,model_gst_dashboard,group_gst_admin,1,1,1,1
+access_unit_quantity_code_manager,Unit Quantity Code Manager,model_unit_quantity_code,group_gst_admin,1,1,1,1
+access_uom_mapping_manager,UOM Mapping Manager,model_uom_mapping,group_gst_admin,1,1,1,1
+
+access_message_wizard,access.message.wizard,model_message_wizard,account.group_account_invoice,1,1,1,0

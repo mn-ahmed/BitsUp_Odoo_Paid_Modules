@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_commission_user,pos.commission.user,bi_pos_commission.model_pos_commission,bi_pos_commission.group_pos_commission,1,1,1,1
+access_pos_commission_exception_user,pos.commission.exception.user,bi_pos_commission.model_pos_commission_exception,bi_pos_commission.group_pos_commission,1,1,1,1
+access_invoice_pos_commission_user,pos.invoice.commission.user,bi_pos_commission.model_pos_invoice_commission,bi_pos_commission.group_pos_commission,1,1,1,1
+access_discount_commssion_user,discount.commission.rules.user,bi_pos_commission.model_discount_commission_rules,bi_pos_commission.group_pos_commission,1,1,1,1
+access_create_invoice_commission,create.invoice.commission.user,bi_pos_commission.model_create_invoice_commission,bi_pos_commission.group_pos_commission,1,1,1,1
+access_wizard_invoice_pos_commission,wizard.pos.invoice.commission.user,bi_pos_commission.model_wizard_pos_invoice_commission,bi_pos_commission.group_pos_commission,1,1,1,1

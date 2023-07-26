@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data>
+        <record id="customer_invoice_list_action" model="ir.actions.act_window">
+            <field name="name">Customer Invoice</field>
+            <field name="res_model">account.move</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="gst_invoice_tree"/>
+            <field name="domain">[
+                ('state', '=', 'posted'),
+                ('move_type', '=', 'out_invoice')
+            ]</field>
+            <field name="context">{
+                'search_default_filter_by_gst_status': 1,
+                'default_move_type': 'out_invoice'
+            }</field>
+        </record>
+
+        <record id="gst_attachments_action" model="ir.actions.act_window">
+            <field name="name">GST Attachments</field>
+            <field name="res_model">ir.attachment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="gst_wk_ir_attachment_tree_view"/>
+            <field name="domain">[('res_model', '=', 'gstr1.tool')]</field>
+        </record>
+
+        <record id="action_invoice_gst_tree1_view2" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="gst_invoice_tree"/>
+            <field name="act_window_id" ref="customer_invoice_list_action"/>
+        </record>
+
+        <record id="action_invoice_gst_form_view2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="account.view_move_form"/>
+            <field name="act_window_id" ref="customer_invoice_list_action"/>
+        </record>
+
+        <record id="gstr1_list_action" model="ir.actions.act_window">
+            <field name="name">GSTR1 Tool</field>
+            <field name="res_model">gstr1.tool</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="gstr1_tool_tree"/>
+            <field name="search_view_id" ref="view_gstr_filter"/>
+            <field name="domain">[('gst_type', '=', 'gstr1')]</field>
+            <field name="context">{'default_gst_type': 'gstr1'}</field>
+        </record>
+
+        <record id="gstr2_list_action" model="ir.actions.act_window">
+            <field name="name">GSTR2 Tool</field>
+            <field name="res_model">gstr1.tool</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="gstr1_tool_tree"/>
+            <field name="domain">[('gst_type', '=', 'gstr2')]</field>
+            <field name="search_view_id" ref="view_gstr_filter"/> 
+            <field name="context">{'default_gst_type': 'gstr2'}</field>
+        </record>
+
+        <record id="action_gstr2_tree_view" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="gstr1_tool_tree"/>
+            <field name="act_window_id" ref="gstr2_list_action"/>
+        </record>
+
+        <record id="action_gstr2_form_view" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="gstr2_tool_form"/>
+            <field name="act_window_id" ref="gstr2_list_action"/>
+        </record>
+
+        <record id="supplier_invoice_list_action" model="ir.actions.act_window">
+            <field name="name">Supplier Invoice</field>
+            <field name="res_model">account.move</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="gst_invoice_tree"/>
+            <field name="domain">[
+                ('state', '=', 'posted'),
+                ('move_type', '=', 'in_invoice')
+            ]</field>
+            <field name="context">{
+                'search_default_filter_by_gst_status': 1,
+                'default_move_type': 'in_invoice',
+                'move_type': 'in_invoice',
+                'journal_type': 'purchase'
+            }</field>
+        </record>
+
+        <record id="action_supplier_invoice_gst_tree1_view2" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="gst_invoice_tree"/>
+            <field name="act_window_id" ref="supplier_invoice_list_action"/>
+        </record>
+
+        <record id="action_supplier_invoice_gst_form_view2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="account.view_move_form"/>
+            <field name="act_window_id" ref="supplier_invoice_list_action"/>
+        </record>
+
+        <record id="gst_uom_action" model="ir.actions.act_window">
+            <field name="name">Unit Quantity Code</field>
+            <field name="res_model">unit.quantity.code</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="gst_uom_tree"/>
+        </record>
+    </data>
+</odoo>
